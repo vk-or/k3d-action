@@ -16,4 +16,4 @@ jobs:
           args: >-
             --no-lb
             --k3s-arg "--no-deploy=traefik,servicelb,metrics-server@server:*"
-      - run: k3d version | { grep v5.2.3 || exit 1; }
+      - run: k3d version | { grep v5.2.2 || exit 1; }
