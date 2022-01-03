@@ -12,8 +12,8 @@ jobs:
         name: k3d-version-specified
         with:
           cluster-name: "k3d-version-specified"
-          k3d-version: v5.0.3
+          k3d-version: v5.2.2
           args: >-
             --no-lb
             --k3s-arg "--no-deploy=traefik,servicelb,metrics-server@server:*"
-      - run: k3d version | { grep v5.0.3 | exit -1; }
+      - run: k3d version | { grep v5.2.3 || exit 1; }
