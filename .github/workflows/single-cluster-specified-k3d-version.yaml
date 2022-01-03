@@ -1,4 +1,4 @@
-name: Retrieving nodes right after we create cluster
+name: specific demo
 
 on:
   [workflow_dispatch, push]
@@ -16,4 +16,4 @@ jobs:
           args: >-
             --no-lb
             --k3s-arg "--no-deploy=traefik,servicelb,metrics-server@server:*"
-      - run: k3d version | grep v5.0.3
+      - run: k3d version | { grep v10.0.0 | 1; }
