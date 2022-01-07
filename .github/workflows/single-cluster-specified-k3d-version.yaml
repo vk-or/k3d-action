@@ -1,4 +1,4 @@
-name: specific demo
+name: TEST12
 
 on:
   [workflow_dispatch, push]
@@ -11,9 +11,5 @@ jobs:
       - uses: ./
         name: k3d-version-specified
         with:
-          cluster-name: "k3d-version-specified"
-          k3d-version: v5.2.2
-          args: >-
-            --no-lb
-            --k3s-arg "--no-deploy=traefik,servicelb,metrics-server@server:*"
-      - run: k3d version | grep v5.2.2
+          cluster-name: k3s-default
+          args: --agents 1 --no-lb --k3s-arg "--no-deploy=traefik,servicelb,metrics-server@server:*" --verbose
